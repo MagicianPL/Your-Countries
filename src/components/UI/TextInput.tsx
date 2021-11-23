@@ -17,8 +17,21 @@ const StyledBlock = styled.div`
         margin-bottom: 0.8rem;
     }
 
+    input {
+        border: 1px solid gray;
+        border-radius: 2px;
+        transition: border 0.3s;
+        padding: 3px 8px;
+    }
+
     input:hover {
         border: 1px solid #0000d9;
+    }
+
+    input:focus {
+        outline: 2px solid #0000ae;
+        border: none;
+        background-color: #e5e5f6;
     }
 `;
 
