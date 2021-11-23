@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TextInput from './UI/TextInput';
+import Button from './UI/Button';
 
 const Wrapper = styled.div`
     width: 800px;
@@ -9,6 +10,8 @@ const Wrapper = styled.div`
     background-color: white;
     border-radius: 5px;
     padding: 20px 14px;
+    min-height: 450px;
+    position: relative;
 `;
 
 
@@ -18,6 +21,7 @@ const AddCountryForm = () => {
             <TextInput id="country" label="Country" />
             <TextInput id="rating" label="Your rating (1-5)" />
             <TextInput id="description" label="Describe it!" textarea={true} />
+            <Button>Add Country</Button>
         </Wrapper>
     )
 };

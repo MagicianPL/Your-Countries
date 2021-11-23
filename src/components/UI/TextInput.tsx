@@ -23,7 +23,7 @@ const StyledBlock = styled.div`
     input, textarea {
         border: 1px solid gray;
         border-radius: 2px;
-        transition: border 0.3s;
+        transition: border, background-color 0.8s;
         padding: 3px 8px;
     }
 
@@ -32,7 +32,7 @@ const StyledBlock = styled.div`
     }
 
     input:focus, textarea:focus {
-        outline: 2px solid #0000ae;
+        outline: 2px solid #000022;
         border: none;
         background-color: #e5e5f6;
     }
