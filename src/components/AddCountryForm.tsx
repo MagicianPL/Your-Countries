@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import TextInput from './UI/TextInput';
 
 const Wrapper = styled.div`
-    display: flex;
     width: 800px;
-    height: 300px;
     margin: 0 auto;
     max-width: 100%;
     background-color: white;
@@ -18,6 +16,8 @@ const AddCountryForm = () => {
      return (
         <Wrapper>
             <TextInput id="country" label="Country" />
+            <TextInput id="rating" label="Your rating (1-5)" />
+            <TextInput id="description" label="Describe it!" textarea={true} />
         </Wrapper>
     )
 };

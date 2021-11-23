@@ -6,6 +6,8 @@ const StyledBlock = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 25px;
+    min-height: 80px;
 
     * {
         width: 100%;
@@ -15,20 +17,21 @@ const StyledBlock = styled.div`
     label {
         font-weight: bold;
         margin-bottom: 0.8rem;
+       
     }
 
-    input {
+    input, textarea {
         border: 1px solid gray;
         border-radius: 2px;
         transition: border 0.3s;
         padding: 3px 8px;
     }
 
-    input:hover {
+    input:hover, textarea:hover {
         border: 1px solid #0000d9;
     }
 
-    input:focus {
+    input:focus, textarea:focus {
         outline: 2px solid #0000ae;
         border: none;
         background-color: #e5e5f6;
@@ -38,13 +41,19 @@ const StyledBlock = styled.div`
 interface Props{
     id: string,
     label: string,
+    textarea?: boolean;
 }
 
-const TextInput: React.FC<Props> = ({id, label}) => {
+const TextInput: React.FC<Props> = ({id, label, textarea}) => {
     return (
         <StyledBlock>
             <label htmlFor={id}>{label}</label>
-            <input type="text" id={id} />
+            {
+                !textarea ? 
+                <input type="text" id={id} />
+                :
+                <textarea id={id} />
+            } 
         </StyledBlock>
     );
 };
