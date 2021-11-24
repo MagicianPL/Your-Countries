@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import TextInput from './UI/TextInput';
 import Button from './UI/Button';
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
     width: 800px;
     margin: 0 auto;
     max-width: 100%;
@@ -16,12 +16,19 @@ const Wrapper = styled.div`
 
 
 const AddCountryForm = () => {
+
+    const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        console.log("Form is sent");
+    }
+
      return (
-        <Wrapper>
+        <Wrapper onSubmit={handleSubmitForm}>
             <TextInput id="country" label="Country" />
             <TextInput id="rating" label="Your rating (1-5)" />
             <TextInput id="description" label="Describe it!" textarea={true} />
-            <Button>Add Country</Button>
+            <Button type="submit">Add Country</Button>
         </Wrapper>
     )
 };

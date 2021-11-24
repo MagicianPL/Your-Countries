@@ -22,10 +22,14 @@ const StyledButton = styled.button`
     }
 `;
 
+interface Props {
+    children: unknown,
+    type?: "button" | "submit",
+}
 
-const Button: React.FC<unknown> = ({children}) => {
+const Button: React.FC<Props> = ({children, type}) => {
     return (
-        <StyledButton>{children}</StyledButton>
+        <StyledButton type={type}>{children}</StyledButton>
     );
 };
 
