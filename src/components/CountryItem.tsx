@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-
-const star = <FontAwesomeIcon icon={faStar} />;
+import RatingStars from './RatingStars';
+import Button from './UI/Button';
 
 const StyledCountryItem = styled.div`
     width: 600px;
@@ -56,24 +54,21 @@ const StyledCountryItem = styled.div`
     &:hover svg {
         filter:drop-shadow(2px 3px 5px #000011);
     }
-`;
 
-const StyledRating = styled.div`
-    width: 100%;
-    padding: 0 8px;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1.8rem;
-    font-size: 35px;
+    button {
+        position: absolute;
+        bottom: 10px;
+        right: 14px;
+        left: auto;
+    }
 `;
 
 const CountryItem = () => {
     return (
         <StyledCountryItem>
             <h1>Egypt</h1>
-            <StyledRating>
-                {star}{star}{star}{star}{star}
-            </StyledRating>
+            <RatingStars />
+            <Button>Show details</Button>
         </StyledCountryItem>
     );
 };
