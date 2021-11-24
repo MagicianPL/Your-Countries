@@ -1,5 +1,6 @@
 import React from 'react';
 import AddCountryForm from './components/AddCountryForm';
+import CountryItem from './components/CountryItem';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -14,7 +15,8 @@ function App() {
   return (
     <Wrapper>
       <AddCountryForm />
-      </Wrapper>
+      <CountryItem />
+    </Wrapper>
   );
 }
 
