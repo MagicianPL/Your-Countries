@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+
+const star = <FontAwesomeIcon icon={faStar} />;
 
 const StyledCountryItem = styled.div`
     width: 600px;
@@ -20,6 +24,12 @@ const StyledCountryItem = styled.div`
         opacity: 0.2;
         z-index: -1;
         border-radius: 5px;
+        filter: blur(3px);
+        transition: all 0.4s;
+    }
+
+    &:hover:before {
+        filter: blur(0px);
     }
 
     &:after {
@@ -36,13 +46,34 @@ const StyledCountryItem = styled.div`
         padding-bottom: 10px;
         border-bottom: 3px solid #000011;
     }
+
+    svg {
+        color: #000022;
+        filter:drop-shadow(2px 3px 4px #000011);
+        transition: all 0.2s;
+    }
+
+    &:hover svg {
+        filter:drop-shadow(2px 3px 5px #000011);
+    }
 `;
 
+const StyledRating = styled.div`
+    width: 100%;
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.8rem;
+    font-size: 35px;
+`;
 
 const CountryItem = () => {
     return (
         <StyledCountryItem>
             <h1>Egypt</h1>
+            <StyledRating>
+                {star}{star}{star}{star}{star}
+            </StyledRating>
         </StyledCountryItem>
     );
 };
