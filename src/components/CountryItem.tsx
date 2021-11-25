@@ -7,7 +7,7 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
     width: 600px;
     max-width: 100%;
     min-height: 260px;
-    margin: 30px 0 0 30px;
+    margin-bottom: 30px;
     border-radius: 5px;
     position: relative;
     padding: 1rem;
