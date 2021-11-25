@@ -56,6 +56,15 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
         filter:drop-shadow(2px 3px 5px #000011);
     }
 
+    .currency {
+        font-weight: bold;
+        margin-top: 25px;
+    }
+
+    .currency span {
+        font-style: italic;
+    }
+
     button {
         position: absolute;
         bottom: 10px;
@@ -91,7 +100,7 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
         <StyledCountryItem imageUrl={imageUrl}>
             <h1>{country}</h1>
             <RatingStars rating={rating} />
-            <p>Currency: {currency}</p>
+            <p className="currency"><span>Currency: </span>{currency}</p>
             <Button>Show details</Button>
         </StyledCountryItem>
     );

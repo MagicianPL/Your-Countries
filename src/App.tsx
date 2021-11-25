@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddCountryForm from './components/AddCountryForm';
 import styled from 'styled-components';
+import Button from './components/UI/Button';
 import CountriesGrid from './components/CountriesGrid';
 
 const countryListArr = [
@@ -38,6 +39,7 @@ const Wrapper = styled.div`
 `;
 
 
+
 function App() {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -45,6 +47,7 @@ function App() {
 
   return (
     <Wrapper>
+      <Button className="show-form">Add country</Button>
       <AddCountryForm />
       <CountriesGrid countriesList={countriesList} />
     </Wrapper>

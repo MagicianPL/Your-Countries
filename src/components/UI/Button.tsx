@@ -20,16 +20,25 @@ const StyledButton = styled.button`
         background-color: #000022;
         color: gray;
     }
+
+    &.show-form {
+        color: black;
+        background: white;
+        position: static;
+        display: block;
+        margin: 0 auto 20px auto;
+    }
 `;
 
 interface Props {
     children: unknown,
     type?: "button" | "submit",
+    className?: string
 }
 
-const Button: React.FC<Props> = ({children, type}) => {
+const Button: React.FC<Props> = ({children, type, className}) => {
     return (
-        <StyledButton type={type}>{children}</StyledButton>
+        <StyledButton className={className} type={type}>{children}</StyledButton>
     );
 };
 
