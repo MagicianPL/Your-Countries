@@ -42,15 +42,16 @@ interface Props{
     id: string,
     label: string,
     textarea?: boolean;
+    type?: string;
 }
 
-const TextInput: React.FC<Props> = ({id, label, textarea}) => {
+const TextInput: React.FC<Props> = ({id, label, textarea, type="text"}) => {
     return (
         <StyledBlock>
             <label htmlFor={id}>{label}</label>
             {
                 !textarea ? 
-                <input type="text" id={id} />
+                <input type={type} id={id} />
                 :
                 <textarea id={id} />
             } 

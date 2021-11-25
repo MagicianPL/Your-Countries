@@ -10,7 +10,7 @@ const Wrapper = styled.form`
     background-color: white;
     border-radius: 5px;
     padding: 20px 14px;
-    min-height: 450px;
+    min-height: 550px;
     position: relative;
 `;
 
@@ -26,8 +26,9 @@ const AddCountryForm = () => {
      return (
         <Wrapper onSubmit={handleSubmitForm}>
             <TextInput id="country" label="Country" />
-            <TextInput id="rating" label="Your rating (1-5)" />
+            <TextInput type="number" id="rating" label="Your rating (1-5)" />
             <TextInput id="description" label="Describe it!" textarea={true} />
+            <TextInput id="url" label="Image URL (optional)" />
             <Button type="submit">Add Country</Button>
         </Wrapper>
     )
