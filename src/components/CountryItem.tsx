@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 import RatingStars from './RatingStars';
@@ -63,11 +64,18 @@ const StyledCountryItem = styled.div`
     }
 `;
 
-const CountryItem = () => {
+    interface Props {
+        country: string,
+        description: string,
+        imageUrl: string,
+        rating: number,
+    }
+
+const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) => {
     return (
         <StyledCountryItem>
-            <h1>Egypt</h1>
-            <RatingStars />
+            <h1>{country}</h1>
+            <RatingStars rating={rating} />
             <Button>Show details</Button>
         </StyledCountryItem>
     );

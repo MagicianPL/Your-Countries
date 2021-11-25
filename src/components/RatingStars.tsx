@@ -5,7 +5,11 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const star = <FontAwesomeIcon icon={faStar} />;
 
-const StyledRating = styled.div`
+interface Props {
+    rating: number,
+}
+
+const StyledRating = styled.div<Props>`
     width: 100%;
     padding: 0 8px;
     display: flex;
@@ -14,10 +18,10 @@ const StyledRating = styled.div`
     font-size: 40px;
 `;
 
-const RatingStars = () => {
+const RatingStars: React.FC<Props> = ({rating}) => {
     return (
-        <StyledRating>
-            {star}{star}{star}{star}{star}
+        <StyledRating rating={rating}>
+            {Array(rating).map(() => star)}
         </StyledRating>
     );
 };
