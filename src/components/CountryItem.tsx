@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import RatingStars from './RatingStars';
 import Button from './UI/Button';
@@ -73,10 +73,25 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) => {
+
+    const [currency, setCurrency] = useState("?");
+
+    useEffect(()=>{
+        fetch(`https://restcountries.com/v3.1/name/${country}`)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data);
+            const curr = Object.keys(data[0].currencies)[0];
+            console.log(currency);
+            setCurrency(curr);
+        });
+    }, [])
+
     return (
         <StyledCountryItem imageUrl={imageUrl}>
             <h1>{country}</h1>
             <RatingStars rating={rating} />
+            <p>Currency: {currency}</p>
             <Button>Show details</Button>
         </StyledCountryItem>
     );
