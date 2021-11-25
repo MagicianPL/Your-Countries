@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import AddCountryForm from './components/AddCountryForm';
-import CountryItem from './components/CountryItem';
 import styled from 'styled-components';
 import CountriesGrid from './components/CountriesGrid';
 
@@ -30,6 +28,7 @@ const Wrapper = styled.div`
 
 function App() {
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [countriesList, setCountriesList] = useState(countryListArr);
 
   return (

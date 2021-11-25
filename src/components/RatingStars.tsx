@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
+
 const star = <FontAwesomeIcon icon={faStar} />;
 
 interface Props {
@@ -19,9 +20,12 @@ const StyledRating = styled.div<Props>`
 `;
 
 const RatingStars: React.FC<Props> = ({rating}) => {
+    console.log(Array(rating));
     return (
         <StyledRating rating={rating}>
-            {Array(rating).map(() => star)}
+            {   
+                Array(rating).fill(null).map(() => <span key={Math.random()}>{star}</span>)
+            }
         </StyledRating>
     );
 };

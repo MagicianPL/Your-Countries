@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 import RatingStars from './RatingStars';
 import Button from './UI/Button';
 
-const StyledCountryItem = styled.div`
+const StyledCountryItem = styled.div<{imageUrl: string}>`
     width: 600px;
     max-width: 100%;
     min-height: 260px;
@@ -18,7 +17,7 @@ const StyledCountryItem = styled.div`
         content: "";
         position: absolute;
         inset: 0;
-        background: url("https://images.unsplash.com/photo-1523478482487-1eed2b3d9939?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+        background: url("${({imageUrl})=> imageUrl}");
         background-size: cover;
         opacity: 0.2;
         z-index: -1;
@@ -29,6 +28,7 @@ const StyledCountryItem = styled.div`
 
     &:hover:before {
         filter: blur(0px);
+        opacity: 0.4;
     }
 
     &:after {
@@ -71,9 +71,10 @@ const StyledCountryItem = styled.div`
         rating: number,
     }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) => {
     return (
-        <StyledCountryItem>
+        <StyledCountryItem imageUrl={imageUrl}>
             <h1>{country}</h1>
             <RatingStars rating={rating} />
             <Button>Show details</Button>
