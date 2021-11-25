@@ -33,12 +33,13 @@ const StyledButton = styled.button`
 interface Props {
     children: unknown,
     type?: "button" | "submit",
-    className?: string
+    className?: string,
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: React.FC<Props> = ({children, type, className}) => {
+const Button: React.FC<Props> = ({children, type, className, onClick}) => {
     return (
-        <StyledButton className={className} type={type}>{children}</StyledButton>
+        <StyledButton onClick={onClick} className={className} type={type}>{children}</StyledButton>
     );
 };
 

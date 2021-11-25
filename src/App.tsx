@@ -44,11 +44,16 @@ function App() {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [countriesList, setCountriesList] = useState(countryListArr);
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
 
   return (
     <Wrapper>
-      <Button className="show-form">Add country</Button>
-      <AddCountryForm />
+      <Button onClick={toggleForm} className="show-form">{showForm ? "Hide" : "Add country"}</Button>
+      {showForm && <AddCountryForm />}
       <CountriesGrid countriesList={countriesList} />
     </Wrapper>
   );
