@@ -49,8 +49,6 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
 
     const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        console.log("Form is sent");
         addCountry(inputValues);
         setInputValues(initialValues);
     }

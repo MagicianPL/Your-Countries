@@ -17,7 +17,7 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
         content: "";
         position: absolute;
         inset: 0;
-        background: url("${({imageUrl})=> imageUrl}");
+        background: url("${(props) => props.imageUrl ? props.imageUrl : 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJhdmVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'}");
         background-size: cover;
         opacity: 0.2;
         z-index: -1;
