@@ -40,7 +40,7 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
             <p className="currency"><span>Currency: </span>{currency}</p>
             <Button>Show details</Button>
         </StyledCountryItem>
-        <ShowCountryDetails background={imageUrl} country={country} flagUrl={flagUrl} rating={rating} description={description} />
+        <ShowCountryDetails background={imageUrl} country={country} flagUrl={flagUrl} rating={rating} description={description} capital={capital} currency={currency} population={population} continent={continent} />
         </>
     );
 };

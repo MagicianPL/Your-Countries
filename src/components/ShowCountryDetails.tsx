@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import RatingStars from './RatingStars';
+import Button from './UI/Button';
 
 interface OverlayProps {
     background: string
@@ -8,8 +9,11 @@ interface OverlayProps {
 
 const StyledOverlay = styled.div<OverlayProps>`
     position: fixed;
-    inset: 0;
+    width: 100%;
+    top: 0;
+    bottom: 0;
     z-index: 10;
+    overflow-y: scroll;
 
     &:before {
         content: "";
@@ -25,7 +29,6 @@ const StyledOverlay = styled.div<OverlayProps>`
 const StyledDetailsInfo = styled.div`
     width: 1000px;
     max-width: 90%;
-    min-height: 300px;
     background: white;
     border-radius: 5px;
     padding: 1rem;
@@ -46,6 +49,24 @@ const StyledDetailsInfo = styled.div`
         text-align: center;
         flex: 1;
         margin-bottom: 22px;
+    }
+
+    img {
+        max-width: 250px;
+    }
+
+    ul {
+        padding-left: 60px;
+        font-size: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    li span {
+        font-weight: bold;
+        margin-right: 10px;
     }
 
     svg {
@@ -75,9 +96,13 @@ interface Props {
     flagUrl: string,
     rating: string,
     description: string,
+    capital: string
+    currency: string
+    continent: string
+    population: string
 }
 
-const ShowCountryDetails: React.FC<Props> = ({background, country, flagUrl, rating, description}) => {
+const ShowCountryDetails: React.FC<Props> = ({background, country, flagUrl, rating, description, capital, currency, continent, population}) => {
     return (
    
         <StyledOverlay background={background}>
@@ -86,9 +111,15 @@ const ShowCountryDetails: React.FC<Props> = ({background, country, flagUrl, rati
                     <h1>{country}</h1>
                     <img src={flagUrl} alt={`flag of ${country}`} />
                 </header>
+                <ul>
+                    <li><span>Capital:</span> {capital}</li>
+                    <li><span>Currency:</span> {currency}</li>
+                    <li><span>Continent:</span> {continent}</li>
+                    <li><span>Population:</span> {population}</li>
+                </ul>
                 <RatingStars rating={rating} />
                 <p>{description}</p>
-
+                <Button className="hideDetails">BACK</Button>
             </StyledDetailsInfo>
         </StyledOverlay>
       

@@ -28,6 +28,12 @@ const StyledButton = styled.button`
         display: block;
         margin: 0 auto 20px auto;
     }
+
+    &.hideDetails {
+        position: static;
+        display: block;
+        margin: 20px auto;
+    }
 `;
 
 interface Props {
