@@ -52,6 +52,7 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
 
         console.log("Form is sent");
         addCountry(inputValues);
+        setInputValues(initialValues);
     }
 
      return (

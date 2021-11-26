@@ -52,6 +52,7 @@ function App() {
 
   const addCountry = (newCountry) => {
     setCountriesList([newCountry, ...countriesList])
+    toggleForm();
   };
 
   return (
