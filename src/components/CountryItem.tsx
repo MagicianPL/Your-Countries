@@ -3,6 +3,7 @@ import StyledCountryItem from './StyledCountryItem';
 import { fetchCountryData } from '../helpers/fetchningCountryData';
 import RatingStars from './RatingStars';
 import Button from './UI/Button';
+import ShowCountryDetails from './ShowCountryDetails';
 
 
     interface Props {
@@ -31,6 +32,7 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
     }, 5000);
 
     return (
+        <>
         <StyledCountryItem imageUrl={imageUrl}>
             <h1>{country}</h1>
             <RatingStars rating={rating} />
@@ -38,6 +40,8 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
             <p className="currency"><span>Currency: </span>{currency}</p>
             <Button>Show details</Button>
         </StyledCountryItem>
+        <ShowCountryDetails background={imageUrl} country={country} flagUrl={flagUrl} rating={rating} description={description} />
+        </>
     );
 };
 

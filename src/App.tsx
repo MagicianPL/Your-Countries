@@ -26,7 +26,7 @@ const countryListArr = [
   {
     country: "France",
     rating: "3",
-    description: "It was weird!",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla augue ipsum, congue at lectus id, sollicitudin fringilla ligula. Cras porttitor consectetur magna.",
     imageUrl: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80",
   },
 ];
