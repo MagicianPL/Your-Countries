@@ -14,7 +14,6 @@ const StyledOverlay = styled.div<OverlayProps>`
     top: 0;
     bottom: 0;
     z-index: 10;
-    overflow-y: scroll;
 
     &:before {
         content: "";
@@ -23,6 +22,13 @@ const StyledOverlay = styled.div<OverlayProps>`
         background-image: url("${({background}) => background}");
         background-size: cover;
         background-position: center;
+    }
+
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
     }
 `;
 
@@ -36,7 +42,6 @@ const StyledDetailsInfo = styled.div`
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    min-height: 900px;
 
     header {
         display: flex;
@@ -101,12 +106,14 @@ interface Props {
     currency: string
     continent: string
     population: string
+    hideDetails: () => void
 }
 
-const ShowCountryDetails: React.FC<Props> = ({background, country, flagUrl, rating, description, capital, currency, continent, population}) => {
+const ShowCountryDetails: React.FC<Props> = ({background, country, flagUrl, rating, description, capital, currency, continent, population, hideDetails}) => {
     return (
    
-        <StyledOverlay background={background}>
+        <StyledOverlay background={background} onClick={hideDetails}>
+            <div className="wrapper">
             <StyledDetailsInfo>
                 <header>
                     <h1>{country}</h1>
@@ -122,6 +129,7 @@ const ShowCountryDetails: React.FC<Props> = ({background, country, flagUrl, rati
                 <p>{description}</p>
                 <Button className="hideDetails">BACK</Button>
             </StyledDetailsInfo>
+            </div>
         </StyledOverlay>
       
     );
