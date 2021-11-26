@@ -15,12 +15,21 @@ import Button from './UI/Button';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) => {
 
+    /* All data about country. It will be set on fetching */
     const [currency, setCurrency] = useState("?");
+    const [capital, setCapital] = useState("");
+    const [continent, setContinent] = useState("");
+    const [flagUrl, setFlagUrl] = useState("");
+    const [population, setPopulation] = useState("");
 
     useEffect(()=>{
-        fetchCountryData(country, setCurrency);
+        fetchCountryData(country, setCurrency, setCapital, setContinent, setFlagUrl, setPopulation);
     }, []);
     
+    setTimeout(()=>{
+        console.log(currency, capital, continent, flagUrl, population)
+    }, 5000);
+
     return (
         <StyledCountryItem imageUrl={imageUrl}>
             <h1>{country}</h1>
