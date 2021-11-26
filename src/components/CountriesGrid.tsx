@@ -18,7 +18,7 @@ const StyledGrid = styled.div`
 interface Props {
     countriesList: {
         country: string;
-        rating: number;
+        rating: string;
         description: string;
         imageUrl: string;
     }[],

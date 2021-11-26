@@ -91,7 +91,7 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
         country: string,
         description: string,
         imageUrl: string,
-        rating: number,
+        rating: string,
     }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

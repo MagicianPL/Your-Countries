@@ -7,7 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 const star = <FontAwesomeIcon icon={faStar} />;
 
 interface Props {
-    rating: number,
+    rating: string,
 }
 
 const StyledRating = styled.div<Props>`
@@ -20,11 +20,11 @@ const StyledRating = styled.div<Props>`
 `;
 
 const RatingStars: React.FC<Props> = ({rating}) => {
-    console.log(Array(rating));
+
     return (
         <StyledRating rating={rating}>
             {   
-                Array(rating).fill(null).map(() => <span key={Math.random()}>{star}</span>)
+                Array(parseInt(rating)).fill(null).map(() => <span key={Math.random()}>{star}</span>)
             }
         </StyledRating>
     );
