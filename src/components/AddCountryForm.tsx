@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from './UI/TextInput';
 import Button from './UI/Button';
@@ -17,6 +18,27 @@ const Wrapper = styled.form`
 
 const AddCountryForm = () => {
 
+    const initialValues = {
+        country: "",
+        rating: "",
+        description: "mkcmkcmkfcmk",
+        imageUrl: ""
+    };
+
+    const [inputValues, setInputValues] = useState(initialValues);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        const updatedValue = e.target.value;
+
+        setInputValues(
+            {...inputValues,
+                [e.target.name]: updatedValue,
+            }
+        );
+
+        console.log(inputValues);
+    };
+
     const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -25,10 +47,10 @@ const AddCountryForm = () => {
 
      return (
         <Wrapper onSubmit={handleSubmitForm}>
-            <TextInput id="country" label="Country" />
-            <TextInput type="number" id="rating" label="Your rating (1-5)" />
-            <TextInput id="description" label="Describe it!" textarea={true} />
-            <TextInput id="url" label="Image URL (optional)" />
+            <TextInput id="country" label="Country" name="country" value={initialValues.country} onChange={handleInputChange} />
+            <TextInput type="number" id="rating" label="Your rating (1-5)" name="rating" onChange={handleInputChange} />
+            <TextInput id="description" label="Describe it!" name="description" textarea={true} onChange={handleInputChange} />
+            <TextInput id="imageUrl" label="Image URL (optional)" name="imageUrl" onChange={handleInputChange} />
             <Button type="submit">Add Country</Button>
         </Wrapper>
     )

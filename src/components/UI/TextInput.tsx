@@ -42,18 +42,21 @@ interface Props{
     id: string,
     label: string,
     textarea?: boolean;
+    value?: string,
+    onChange: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void,
+    name: string,
     type?: string;
 }
 
-const TextInput: React.FC<Props> = ({id, label, textarea, type="text"}) => {
+const TextInput: React.FC<Props> = ({id, label, textarea, value, name, onChange, type="text"}) => {
     return (
         <StyledBlock>
             <label htmlFor={id}>{label}</label>
             {
                 !textarea ? 
-                <input type={type} id={id} />
+                <input type={type} id={id} name={name} value={value ? value : undefined} onChange={onChange} />
                 :
-                <textarea id={id} />
+                <textarea id={id} name={name} value={value ? value : undefined} onChange={onChange} />
             } 
         </StyledBlock>
     );
