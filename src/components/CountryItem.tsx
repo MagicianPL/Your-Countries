@@ -23,6 +23,13 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
     const [flagUrl, setFlagUrl] = useState("");
     const [population, setPopulation] = useState("");
 
+    /* For ShowCountryDetails Component */
+    const [showDetails, setShowDetails] = useState(false);
+
+    const toggleDetails = () => {
+        setShowDetails(!showDetails);
+    };
+
     useEffect(()=>{
         fetchCountryData(country, setCurrency, setCapital, setContinent, setFlagUrl, setPopulation);
     }, []);
@@ -38,9 +45,11 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
             <RatingStars rating={rating} />
             <p className="rating">YOUR RATING</p>
             <p className="currency"><span>Currency: </span>{currency}</p>
-            <Button>Show details</Button>
+            <Button onClick={toggleDetails}>Show details</Button>
         </StyledCountryItem>
+        {showDetails ?
         <ShowCountryDetails background={imageUrl} country={country} flagUrl={flagUrl} rating={rating} description={description} capital={capital} currency={currency} population={population} continent={continent} />
+        : null}
         </>
     );
 };

@@ -10,6 +10,7 @@ interface OverlayProps {
 const StyledOverlay = styled.div<OverlayProps>`
     position: fixed;
     width: 100%;
+    height: 100%;
     top: 0;
     bottom: 0;
     z-index: 10;
@@ -22,7 +23,6 @@ const StyledOverlay = styled.div<OverlayProps>`
         background-image: url("${({background}) => background}");
         background-size: cover;
         background-position: center;
-        opacity: 0.8;
     }
 `;
 
@@ -36,6 +36,7 @@ const StyledDetailsInfo = styled.div`
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+    min-height: 900px;
 
     header {
         display: flex;
