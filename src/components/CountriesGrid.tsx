@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CountryItem from './CountryItem';
 import styled from 'styled-components';
 
@@ -25,16 +25,6 @@ interface Props {
 }
 
 const CountriesGrid: React.FC<Props> = ({countriesList}) => {
-
-    useEffect(()=>{
-        fetch("https://restcountries.com/v3.1/name/Japan")
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data);
-            const currency = Object.keys(data[0].currencies)[0];
-            console.log(currency);
-        });
-    }, [])
 
     return (
         <StyledGrid>

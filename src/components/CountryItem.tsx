@@ -105,7 +105,6 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
         .then(data => {
             console.log(data);
             const curr = Object.keys(data[0].currencies)[0];
-            console.log(currency);
             setCurrency(curr);
         });
     }, [])

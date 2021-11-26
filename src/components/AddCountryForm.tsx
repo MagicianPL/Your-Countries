@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from './UI/TextInput';
@@ -43,8 +42,6 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
                 [e.target.name]: updatedValue,
             }
         );
-
-        console.log(inputValues);
     };
 
     const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {

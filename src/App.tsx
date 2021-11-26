@@ -42,7 +42,6 @@ const Wrapper = styled.div`
 
 function App() {
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [countriesList, setCountriesList] = useState(countryListArr);
   const [showForm, setShowForm] = useState(false);
 
