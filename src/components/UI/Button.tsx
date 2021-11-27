@@ -34,6 +34,12 @@ const StyledButton = styled.button`
         display: block;
         margin: 20px auto;
     }
+
+    &.country-item {
+        bottom: 10px;
+        right: 14px;
+        left: auto;
+    }
 `;
 
 interface Props {

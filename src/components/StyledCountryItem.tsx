@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
 const StyledCountryItem = styled.div<{imageUrl: string}>`
-    width: 600px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 600px;
     min-height: 260px;
     margin-bottom: 30px;
     border-radius: 5px;
     position: relative;
     padding: 1rem;
     z-index: 1;
+
+    @media (max-width: 330px) {
+        & {
+            min-height: 285px;
+        }
+    }
 
     &:before {
         content: "";
@@ -55,6 +61,12 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
         width: 100%;
         left: 0;
         z-index: -1;
+        }
+
+        @media (max-width: 330px) {
+            .rating {
+                margin-top: 8px;
+            }
     }
 
     svg {
@@ -72,15 +84,13 @@ const StyledCountryItem = styled.div<{imageUrl: string}>`
         margin-top: 50px;
     }
 
+    @media (max-width: 330px) {
+        .currency {
+            margin-top: 58px;
+        }
+
     .currency span {
         font-style: italic;
-    }
-
-    button {
-        position: absolute;
-        bottom: 10px;
-        right: 14px;
-        left: auto;
     }
 `;
 

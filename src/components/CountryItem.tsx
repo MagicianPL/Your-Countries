@@ -41,7 +41,7 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
             <RatingStars rating={rating} />
             <p className="rating">YOUR RATING</p>
             <p className="currency"><span>Currency: </span>{currency}</p>
-            <Button onClick={toggleDetails}>Show details</Button>
+            <Button onClick={toggleDetails} className="country-item">Show details</Button>
         </StyledCountryItem>
         {showDetails ?
         <ShowCountryDetails background={imageUrl} country={country} flagUrl={flagUrl} rating={rating} description={description} capital={capital} currency={currency} population={population} continent={continent} hideDetails={toggleDetails} />

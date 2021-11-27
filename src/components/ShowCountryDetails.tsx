@@ -45,6 +45,8 @@ const StyledDetailsInfo = styled.div`
 
     header {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     h1 {
@@ -58,12 +60,25 @@ const StyledDetailsInfo = styled.div`
     }
 
     img {
+        width: 100%;
         max-width: 250px;
     }
 
     ul {
         padding-left: 60px;
         font-size: 20px;
+    }
+
+    @media (max-width: 370px) {
+        ul {
+            padding-left: 20px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        ul {
+            margin-top: 20px;
+        }
     }
 
     li {
