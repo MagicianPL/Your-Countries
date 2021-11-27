@@ -56,7 +56,7 @@ interface Props {
 
 const Modal: React.FC<Props> = ({title, content, hideModal}) => {
     return (
-        <StyledModalOverlay>
+        <StyledModalOverlay onClick={hideModal}>
             <div className="relative-wrapper">
                 <StyledModal>
                     <header>

@@ -46,16 +46,22 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
         );
     };
 
+    const [showErrorModal, setShowErrorModal] = useState(false);
+
+    const toggleErrorModal = () => {
+        setShowErrorModal(!showErrorModal)
+    };
+
     const formValidation = () => {
         const {country, rating, description} = inputValues;
         if (country.trim().length === 0) {
-            console.log("ERROR");
+            setShowErrorModal(true);
             return;
         } else if (description.trim().length === 0) {
-            console.log("ERROR");
+            setShowErrorModal(true);
             return;
-        } else if (parseInt(rating) <= 0 || parseInt(rating) > 5) {
-            console.log("ERROR");
+        } else if (rating.trim().length === 0 || parseInt(rating) <= 0 || parseInt(rating) > 5) {
+            setShowErrorModal(true);
             return;
         }
         /* If form is valid we can add country to an array */
@@ -68,12 +74,11 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
         formValidation();
     }
 
-    const [showErrorModal, setShowErrorModal] = useState(true);
 
      return (
     <>
         {showErrorModal ?
-        <Modal />
+        <Modal title="ERROR" content="Please enter valid informations" hideModal={toggleErrorModal} />
         :
         <Wrapper onSubmit={handleSubmitForm}>
         <TextInput id="country" label="Country" name="country" value={initialValues.country} onChange={handleInputChange} />
