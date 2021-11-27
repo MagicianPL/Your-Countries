@@ -5,11 +5,10 @@ import Button from './Button';
 const StyledModalOverlay = styled.div`
     width: 100%;
     height: 100%;
-    top: 0;
-    bottom: 0;
+    inset: 0;
     position: fixed;
-    background-color: black;
-    opacity: 0.5;
+    background-color: #262626;
+    z-index: 10;
 
     .relative-wrapper {
         width: 100%;
@@ -30,7 +29,23 @@ const StyledModal = styled.div`
     transform: translateX(-50%);
 
     h1 {
-        padding: 8px 5px;
+        padding: 15px 8px;
+        border-radius: 0 0 5px 5px;
+        background-color: #000011;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+
+    p {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        color: red;
+        font-size: 24px;
+        margin-bottom: 40px;
     }
 `
 

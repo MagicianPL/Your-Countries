@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from './UI/TextInput';
 import Button from './UI/Button';
+import Modal from './UI/Modal';
 
 const Wrapper = styled.form`
     width: 800px;
@@ -67,14 +68,22 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
         formValidation();
     }
 
+    const [showErrorModal, setShowErrorModal] = useState(true);
+
      return (
+    <>
+        {showErrorModal ?
+        <Modal />
+        :
         <Wrapper onSubmit={handleSubmitForm}>
-            <TextInput id="country" label="Country" name="country" value={initialValues.country} onChange={handleInputChange} />
-            <TextInput type="number" id="rating" label="Your rating (1-5)" name="rating" onChange={handleInputChange} />
-            <TextInput id="description" label="Describe it!" name="description" textarea={true} value={initialValues.description} onChange={handleInputChange} />
-            <TextInput id="imageUrl" label="Image URL (optional)" name="imageUrl" onChange={handleInputChange} />
-            <Button type="submit">Add Country</Button>
-        </Wrapper>
+        <TextInput id="country" label="Country" name="country" value={initialValues.country} onChange={handleInputChange} />
+        <TextInput type="number" id="rating" label="Your rating (1-5)" name="rating" onChange={handleInputChange} />
+        <TextInput id="description" label="Describe it!" name="description" textarea={true} value={initialValues.description} onChange={handleInputChange} />
+        <TextInput id="imageUrl" label="Image URL (optional)" name="imageUrl" onChange={handleInputChange} />
+        <Button type="submit">Add Country</Button>
+    </Wrapper>
+    } 
+    </>
     )
 };
 
