@@ -57,6 +57,7 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
             console.log("ERROR");
             return;
         }
+        /* If form is valid we can add country to an array */
         addCountry(inputValues);
         setInputValues(initialValues);
     };
