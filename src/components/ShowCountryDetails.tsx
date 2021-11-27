@@ -19,7 +19,7 @@ const StyledOverlay = styled.div<OverlayProps>`
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url("${({background}) => background}");
+        background-image: url("${(props) => props.background ? props.background : 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJhdmVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'}");
         background-size: cover;
         background-position: center;
     }
