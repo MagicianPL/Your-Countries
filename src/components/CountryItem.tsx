@@ -33,10 +33,6 @@ const CountryItem: React.FC<Props> = ({country, description, imageUrl, rating}) 
     useEffect(()=>{
         fetchCountryData(country, setCurrency, setCapital, setContinent, setFlagUrl, setPopulation);
     }, []);
-    
-    setTimeout(()=>{
-        console.log(currency, capital, continent, flagUrl, population)
-    }, 5000);
 
     return (
         <>

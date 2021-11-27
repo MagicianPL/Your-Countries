@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from './UI/TextInput';
@@ -44,10 +45,25 @@ const AddCountryForm: React.FC<Props> = ({addCountry}) => {
         );
     };
 
-    const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const formValidation = () => {
+        const {country, rating, description} = inputValues;
+        if (country.trim().length === 0) {
+            console.log("ERROR");
+            return;
+        } else if (description.trim().length === 0) {
+            console.log("ERROR");
+            return;
+        } else if (parseInt(rating) <= 0 || parseInt(rating) > 5) {
+            console.log("ERROR");
+            return;
+        }
         addCountry(inputValues);
         setInputValues(initialValues);
+    };
+
+    const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        formValidation();
     }
 
      return (
