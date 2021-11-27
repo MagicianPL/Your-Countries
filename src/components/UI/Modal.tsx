@@ -48,18 +48,23 @@ const StyledModal = styled.div`
         margin-bottom: 40px;
     }
 `
+interface Props {
+    title: string
+    content: string
+    hideModal: () => void
+}
 
-const Modal = () => {
+const Modal: React.FC<Props> = ({title, content, hideModal}) => {
     return (
         <StyledModalOverlay>
             <div className="relative-wrapper">
                 <StyledModal>
                     <header>
-                        <h1>ERROR</h1>
+                        <h1>{title}</h1>
                     </header>
-                    <p>ncdncdcncfncifncfnvfnvfnvuf</p>
+                    <p>{content}</p>
                     <footer>
-                        <Button className="hideDetails">OK</Button>
+                        <Button onClick={hideModal} className="hideDetails">OK</Button>
                     </footer>
                 </StyledModal>
             </div>
