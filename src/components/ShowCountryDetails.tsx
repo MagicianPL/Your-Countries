@@ -37,7 +37,6 @@ const StyledDetailsInfo = styled.div`
     max-width: 90%;
     background: white;
     border-radius: 5px;
-    padding: 1rem;
     position: absolute;
     top: 20px;
     left: 50%;
@@ -47,6 +46,11 @@ const StyledDetailsInfo = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        background: #00002B;
+        color: white;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-bottom: 1.5rem;
     }
 
     h1 {
